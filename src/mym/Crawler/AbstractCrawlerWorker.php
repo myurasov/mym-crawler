@@ -3,16 +3,23 @@
 namespace mym\Crawler;
 
 use mym\Crawler\Processor\ProcessorPool;
-use mym\Component\GearmanTools\Utils as GearmanToolsUtils;
+use mym\GearmanTools\GearmanWorkerInterface;
+use mym\GearmanTools\Utils as GearmanToolsUtils;
+use Psr\Log\LoggerInterface;
 
-class AbstractCrawlerWorker implements \GearmanManagerWorkerInterface
+class AbstractCrawlerWorker implements GearmanWorkerInterface
 {
   /**
    * @var ProcessorPool
    */
   protected $processorPool;
 
-  public function run(\GearmanJob $job, &$log)
+  /**
+   * @var LoggerInterface
+   */
+  protected $logger;
+
+  public function run(\GearmanJob $job)
   {
     $url /* @var $url Url */ = GearmanToolsUtils::unpackMessage($job->workload());
 
@@ -35,10 +42,21 @@ class AbstractCrawlerWorker implements \GearmanManagerWorkerInterface
       'message' => $message
     ];
 
-    $log[] = $message;
+    $this->logger->info($message);
 
     $result = GearmanToolsUtils::packMessage($result);
 
     return $result;
+  }
+
+  /**
+   * Sets a logger instance on the object
+   *
+   * @param LoggerInterface $logger
+   * @return null
+   */
+  public function setLogger(LoggerInterface $logger)
+  {
+    $this->logger = $logger;
   }
 }
