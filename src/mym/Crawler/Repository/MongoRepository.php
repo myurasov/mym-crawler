@@ -3,7 +3,6 @@
 namespace mym\Crawler\Repository;
 
 use mym\Crawler\Url;
-use mym\Crawler\Repository\RepositoryInterface;
 
 class MongoRepository implements RepositoryInterface
 {

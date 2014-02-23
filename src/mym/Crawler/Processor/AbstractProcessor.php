@@ -2,7 +2,6 @@
 
 namespace mym\Crawler\Processor;
 
-use mym\Crawler\Processor\ProcessorInterface;
 use mym\Crawler\Url;
 use Goutte\Client as GoutteClient;
 use Symfony\Component\DomCrawler\Crawler;

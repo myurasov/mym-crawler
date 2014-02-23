@@ -7,7 +7,6 @@
 namespace mym\Crawler;
 
 use mym\Crawler\Repository\RepositoryInterface;
-use mym\Crawler\Processor\ProcessorPool;
 use Psr\Log\LoggerAwareInterface;
 
 interface DispatcherInterface extends LoggerAwareInterface

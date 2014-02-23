@@ -2,7 +2,6 @@
 
 namespace mym\Crawler\Processor;
 
-use mym\Crawler\Processor\ProcessorInterface;
 use mym\Crawler\Url;
 
 class ProcessorPool

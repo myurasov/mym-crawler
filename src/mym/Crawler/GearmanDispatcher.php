@@ -8,8 +8,8 @@ namespace mym\Crawler;
 
 use mym\Crawler\Repository\RepositoryInterface;
 
-use mym\Component\GearmanTools\GearmanTaskPool;
-use mym\Component\GearmanTools\Utils as GearmanToolsUtils;
+use mym\GearmanTools\GearmanTaskPool;
+use mym\GearmanTools\Utils as GearmanToolsUtils;
 
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
