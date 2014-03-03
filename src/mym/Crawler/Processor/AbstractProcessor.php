@@ -5,7 +5,7 @@ namespace mym\Crawler\Processor;
 use mym\Crawler\Url;
 use Goutte\Client as GoutteClient;
 use Symfony\Component\DomCrawler\Crawler;
-use mym\Exception\HTTPException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class AbstractProcessor implements ProcessorInterface
 {
@@ -48,7 +48,7 @@ class AbstractProcessor implements ProcessorInterface
       $status = $client->getResponse()->getStatus();
 
       if ($status >= 400) {
-        throw HTTPException::createFromCode($status);
+        throw new HttpException($status);
       }
 
     } catch (\Exception $e) {
