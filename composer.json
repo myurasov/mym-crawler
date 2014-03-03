@@ -10,13 +10,21 @@
   ],
   "minimum-stability": "stable",
   "require": {
-
-    "myurasov/mym-gearman-tools": "*@dev",
-
+    
     "psr/log": "~1.0",
     "fabpot/goutte": "~1.0",
-    "symfony/dom-crawler": "~2.0"
+    "symfony/dom-crawler": "~2.0",
+
+    "php": ">=5.4",
+    "ext-mongo": "*"
+
   },
+
+  "suggest": {
+    "ext-gearman": "For use of gearman dispatcher",
+    "myurasov/mym-gearman-tools": "For use of gearman dispatcher"
+  },
+
   "autoload": {
     "psr-0": {
       "mym\\Crawler": "src/"
