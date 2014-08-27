@@ -7,7 +7,7 @@ use mym\GearmanTools\GearmanWorkerInterface;
 use mym\GearmanTools\Utils as GearmanToolsUtils;
 use Psr\Log\LoggerInterface;
 
-class AbstractCrawlerWorker implements GearmanWorkerInterface
+abstract class AbstractCrawlerWorker implements GearmanWorkerInterface
 {
   /**
    * @var ProcessorPool
@@ -58,5 +58,20 @@ class AbstractCrawlerWorker implements GearmanWorkerInterface
   public function setLogger(LoggerInterface $logger)
   {
     $this->logger = $logger;
+  }
+
+  public function getLogger()
+  {
+    return $this->logger;
+  }
+
+  public function setProcessorPool($processorPool)
+  {
+    $this->processorPool = $processorPool;
+  }
+
+  public function getProcessorPool()
+  {
+    return $this->processorPool;
   }
 }
